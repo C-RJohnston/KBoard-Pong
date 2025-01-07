@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ghltptrdlsn1"]
+[gd_scene load_steps=9 format=3 uid="uid://ghltptrdlsn1"]
 
 [ext_resource type="PackedScene" uid="uid://ulhrbx5se0db" path="res://Scenes/Ball/ball.tscn" id="1_4cffp"]
 [ext_resource type="PhysicsMaterial" uid="uid://er7xgtfunvb5" path="res://Materials/physmat.tres" id="1_7f0lv"]
 [ext_resource type="PackedScene" uid="uid://dflo5uheaeuyi" path="res://CamCave/Sounds.tscn" id="3_ggpmk"]
 [ext_resource type="PackedScene" uid="uid://c1vnu7apr3p6c" path="res://DorukZone B-)/MakeLines.tscn" id="4_2lsfg"]
+[ext_resource type="Texture2D" uid="uid://b5g22ns8gktts" path="res://Sprites/PrototypeAssets/Board.png" id="5_7xad8"]
+[ext_resource type="Texture2D" uid="uid://dbt1n2upjr403" path="res://Sprites/PrototypeAssets/Positions.png" id="6_7v3cc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trjgi"]
 size = Vector2(1500, 20)
@@ -13,38 +15,160 @@ size = Vector2(20, 1200)
 
 [node name="Game" type="Node2D"]
 
-[node name="Top" type="StaticBody2D" parent="."]
-position = Vector2(750, 0)
-physics_material_override = ExtResource("1_7f0lv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
-shape = SubResource("RectangleShape2D_trjgi")
-
-[node name="Bottom" type="StaticBody2D" parent="."]
-position = Vector2(0, 1200)
-physics_material_override = ExtResource("1_7f0lv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
-position = Vector2(750, 0)
-shape = SubResource("RectangleShape2D_trjgi")
-
-[node name="Left" type="StaticBody2D" parent="."]
-position = Vector2(0, 600)
-physics_material_override = ExtResource("1_7f0lv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
-shape = SubResource("RectangleShape2D_53cqu")
-
-[node name="Right" type="StaticBody2D" parent="."]
-position = Vector2(1500, 600)
-physics_material_override = ExtResource("1_7f0lv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
-shape = SubResource("RectangleShape2D_53cqu")
-
 [node name="Ball" parent="." instance=ExtResource("1_4cffp")]
 position = Vector2(457, 118)
 
 [node name="Sounds" parent="." instance=ExtResource("3_ggpmk")]
 
-[node name="MakeLines" parent="." instance=ExtResource("4_2lsfg")]
+[node name="MakeLines" parent="." node_paths=PackedStringArray("positions") instance=ExtResource("4_2lsfg")]
+z_index = 5
+positions = NodePath("Positions")
+
+[node name="Positions" type="Node2D" parent="MakeLines"]
+
+[node name="1" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(193, 242)
+
+[node name="2" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(309, 214)
+
+[node name="3" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(453, 194)
+
+[node name="4" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(605, 184)
+
+[node name="5" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(751, 158)
+
+[node name="6" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(875, 166)
+
+[node name="7" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(1011, 176)
+
+[node name="8" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(1137, 182)
+
+[node name="9" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(1243, 208)
+
+[node name="0" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(1337, 256)
+
+[node name="Q" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(251, 466)
+
+[node name="W" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(407, 422)
+
+[node name="E" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(545, 370)
+
+[node name="R" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(689, 356)
+
+[node name="T" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(831, 352)
+
+[node name="Y" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(965, 356)
+
+[node name="U" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(1067, 366)
+
+[node name="I" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(1175, 376)
+
+[node name="O" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(1271, 424)
+
+[node name="P" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(1385, 464)
+
+[node name="A" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(213, 666)
+
+[node name="S" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(399, 654)
+
+[node name="D" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(527, 620)
+
+[node name="F" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(667, 604)
+
+[node name="G" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(815, 608)
+
+[node name="H" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(979, 616)
+
+[node name="J" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(1083, 642)
+
+[node name="K" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(1157, 662)
+
+[node name="L" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(1277, 686)
+
+[node name="Z" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(295, 856)
+
+[node name="X" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(445, 890)
+
+[node name="C" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(605, 902)
+
+[node name="V" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(739, 912)
+
+[node name="B" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(897, 890)
+
+[node name="N" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(1029, 886)
+
+[node name="M" type="Node2D" parent="MakeLines/Positions"]
+position = Vector2(1173, 876)
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="Top" type="StaticBody2D" parent="Borders"]
+position = Vector2(750, 0)
+physics_material_override = ExtResource("1_7f0lv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Top"]
+shape = SubResource("RectangleShape2D_trjgi")
+
+[node name="Bottom" type="StaticBody2D" parent="Borders"]
+position = Vector2(0, 1200)
+physics_material_override = ExtResource("1_7f0lv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Bottom"]
+position = Vector2(750, 0)
+shape = SubResource("RectangleShape2D_trjgi")
+
+[node name="Left" type="StaticBody2D" parent="Borders"]
+position = Vector2(0, 600)
+physics_material_override = ExtResource("1_7f0lv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Left"]
+shape = SubResource("RectangleShape2D_53cqu")
+
+[node name="Right" type="StaticBody2D" parent="Borders"]
+position = Vector2(1500, 600)
+physics_material_override = ExtResource("1_7f0lv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Right"]
+shape = SubResource("RectangleShape2D_53cqu")
+
+[node name="Board" type="Sprite2D" parent="."]
+position = Vector2(748, 602)
+texture = ExtResource("5_7xad8")
+
+[node name="Positions" type="Sprite2D" parent="Board"]
+position = Vector2(3, 0)
+texture = ExtResource("6_7v3cc")

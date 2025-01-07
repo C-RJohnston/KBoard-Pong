@@ -1,15 +1,23 @@
-extends Node2D
+extends RigidBody2D
 
+@export var positions: Node2D
 @onready var line = $Line2D
 @onready var collision = $Collision
 var default_color: Color = Color(1,1,1)
 
 # Dictionary mapping input actions to positions
-var action_positions := {
-	"Q": Vector2(100, 100),
-	"W": Vector2(100, 300),
-	"E": Vector2(300, 300),
-	"R": Vector2(300, 100)
+@onready var action_positions := {
+	"Q": $"Positions/Q".position,
+	"W": $"Positions/W".position,
+	"E": $"Positions/E".position,
+	"R": $"Positions/R".position,
+	"T": $"Positions/E".position,
+	"Y": $"Positions/E".position,
+	"U": $"Positions/E".position,
+	"E": $"Positions/E".position,
+	"E": $"Positions/E".position,
+	"E": $"Positions/E".position,
+
 }
 
 # Store active actions to draw lines
