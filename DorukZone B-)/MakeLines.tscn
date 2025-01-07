@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://c1vnu7apr3p6c"]
+[gd_scene load_steps=2 format=3 uid="uid://c1vnu7apr3p6c"]
+
+[ext_resource type="Script" path="res://DorukZone B-)/make_linesproto.gd" id="1_m3fv8"]
 
 [node name="MakeLines" type="Node2D"]
+script = ExtResource("1_m3fv8")
+
+[node name="Line2D" type="Line2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Line2D"]
+
+[node name="Point1" type="Node2D" parent="."]
+
+[node name="Point2" type="Node2D" parent="."]
