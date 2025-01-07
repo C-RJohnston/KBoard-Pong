@@ -3,6 +3,7 @@ extends RigidBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Random velocity, should change to variable later
 	apply_central_impulse(Vector2(-414,212))
 
 
