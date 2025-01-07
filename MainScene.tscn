@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ghltptrdlsn1"]
 
-[ext_resource type="PackedScene" uid="uid://ulhrbx5se0db" path="res://Scenes/ball.tscn" id="1_4cffp"]
+[ext_resource type="PackedScene" uid="uid://ulhrbx5se0db" path="res://Scenes/Ball/ball.tscn" id="1_4cffp"]
 [ext_resource type="PhysicsMaterial" uid="uid://er7xgtfunvb5" path="res://Materials/physmat.tres" id="1_7f0lv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trjgi"]
