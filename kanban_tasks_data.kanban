@@ -10,7 +10,10 @@
 		{
 			"uuid": "1823a79a-999a-4528-8cc8-b2633d853d4f",
 			"title": "Todo",
-			"tasks": []
+			"tasks": [
+				"8681e0d8-de6b-4a50-a694-538e34ae7593",
+				"5dc25ff9-da61-44f9-9469-a1af119395c8"
+			]
 		},
 		{
 			"uuid": "2a85478f-ba04-44ca-9182-980198782a01",
@@ -23,7 +26,68 @@
 			"tasks": []
 		}
 	],
-	"tasks": [],
+	"tasks": [
+		{
+			"uuid": "8681e0d8-de6b-4a50-a694-538e34ae7593",
+			"title": "2D Assets",
+			"description": "",
+			"category": "e15b00bb-3125-4d3c-a944-8f155334960e",
+			"steps": [
+				{
+					"details": "Point",
+					"done": false
+				},
+				{
+					"details": "Point Anim",
+					"done": false
+				},
+				{
+					"details": "Line Forming",
+					"done": false
+				},
+				{
+					"details": "Line Animation",
+					"done": false
+				},
+				{
+					"details": "Background",
+					"done": false
+				},
+				{
+					"details": "Board",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "5dc25ff9-da61-44f9-9469-a1af119395c8",
+			"title": "Sounds",
+			"description": "",
+			"category": "e15b00bb-3125-4d3c-a944-8f155334960e",
+			"steps": [
+				{
+					"details": "Point Press",
+					"done": false
+				},
+				{
+					"details": "Line",
+					"done": false
+				},
+				{
+					"details": "Line Hit",
+					"done": false
+				},
+				{
+					"details": "Background",
+					"done": false
+				},
+				{
+					"details": "Dead",
+					"done": false
+				}
+			]
+		}
+	],
 	"layout": {
 		"columns": [
 			[
