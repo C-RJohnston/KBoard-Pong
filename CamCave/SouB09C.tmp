@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dflo5uheaeuyi"]
+
+[ext_resource type="Script" path="res://CamCave/sounds.gd" id="1_ie6hn"]
+
+[sub_resource type="AudioStream" id="AudioStream_4nnnd"]
+
+[node name="Sounds" type="Node2D"]
+script = ExtResource("1_ie6hn")
+
+[node name="AudioQ" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_4nnnd")
+
+[node name="AudioW" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_4nnnd")
+
+[node name="AudioE" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_4nnnd")
+
+[node name="AudioR" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_4nnnd")
+
+[node name="AudioT" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_4nnnd")
+
+[node name="AudioY" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_4nnnd")
+
+[node name="AudioU" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_4nnnd")
