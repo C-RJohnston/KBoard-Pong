@@ -36,6 +36,7 @@ func _input(event):
 		$AudioU.stream = path
 		$AudioU.pitch_scale = 493.88/440.00
 		$AudioU.play()
+	
 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

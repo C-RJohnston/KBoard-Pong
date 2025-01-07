@@ -1,14 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1vnu7apr3p6c"]
+[gd_scene load_steps=3 format=3 uid="uid://c1vnu7apr3p6c"]
 
 [ext_resource type="Script" path="res://DorukZone B-)/make_linesproto.gd" id="1_m3fv8"]
+[ext_resource type="PhysicsMaterial" uid="uid://er7xgtfunvb5" path="res://Materials/physmat.tres" id="1_qub2v"]
 
-[node name="MakeLines" type="Node2D"]
+[node name="MakeLines" type="RigidBody2D"]
+mass = 9.22337e+18
+physics_material_override = ExtResource("1_qub2v")
+gravity_scale = 0.0
 script = ExtResource("1_m3fv8")
 
 [node name="Line2D" type="Line2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Line2D"]
-
 [node name="Point1" type="Node2D" parent="."]
 
 [node name="Point2" type="Node2D" parent="."]
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(0, 0, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

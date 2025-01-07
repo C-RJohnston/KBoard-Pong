@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ghltptrdlsn1"]
+[gd_scene load_steps=7 format=3 uid="uid://ghltptrdlsn1"]
 
 [ext_resource type="PackedScene" uid="uid://ulhrbx5se0db" path="res://Scenes/Ball/ball.tscn" id="1_4cffp"]
 [ext_resource type="PhysicsMaterial" uid="uid://er7xgtfunvb5" path="res://Materials/physmat.tres" id="1_7f0lv"]
+[ext_resource type="PackedScene" uid="uid://dflo5uheaeuyi" path="res://CamCave/Sounds.tscn" id="3_ggpmk"]
+[ext_resource type="PackedScene" uid="uid://c1vnu7apr3p6c" path="res://DorukZone B-)/MakeLines.tscn" id="4_2lsfg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trjgi"]
 size = Vector2(1616, 20)
@@ -42,4 +44,8 @@ position = Vector2(0, 448.5)
 shape = SubResource("RectangleShape2D_53cqu")
 
 [node name="Ball" parent="." instance=ExtResource("1_4cffp")]
-position = Vector2(806, 416)
+position = Vector2(457, 118)
+
+[node name="Sounds" parent="." instance=ExtResource("3_ggpmk")]
+
+[node name="MakeLines" parent="." instance=ExtResource("4_2lsfg")]
