@@ -34,7 +34,6 @@ func update_lines_with_collision():
 	line.clear_points()
 	#collision.polygon.clear()
 	collision.polygon = [[0,0], [0,0]]
-	print(collision.polygon)
 	
 	if(active_actions.size() == 2):
 		var start_pos = action_positions[active_actions[0]]

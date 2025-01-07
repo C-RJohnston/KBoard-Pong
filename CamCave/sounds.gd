@@ -1,6 +1,25 @@
 extends Node2D
 var path = preload("res://Assets/A4 Piano.wav")
 
+var fourth_note_frequencies := {
+	"C": 261.63,
+	"C#": 277.18,
+	"D": 293.66,
+	"D#": 311.13,
+	"E": 329.63,
+	"F": 349.23,
+	"F#": 369.99,
+	"G": 392.00,
+	"G#": 415.30,
+	"A": 440.00,
+	"A#": 466.16,
+	"B": 493.88
+}
+var scales:={
+	"Cmaj": ["C", "D", "E", "F", "G", "A", "B", "C'"]
+	
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass

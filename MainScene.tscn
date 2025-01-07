@@ -6,41 +6,40 @@
 [ext_resource type="PackedScene" uid="uid://c1vnu7apr3p6c" path="res://DorukZone B-)/MakeLines.tscn" id="4_2lsfg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trjgi"]
-size = Vector2(1616, 20)
+size = Vector2(1500, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53cqu"]
-size = Vector2(20, 917)
+size = Vector2(20, 1200)
 
 [node name="Game" type="Node2D"]
 
 [node name="Top" type="StaticBody2D" parent="."]
+position = Vector2(750, 0)
 physics_material_override = ExtResource("1_7f0lv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
-position = Vector2(798, 0)
 shape = SubResource("RectangleShape2D_trjgi")
 
 [node name="Bottom" type="StaticBody2D" parent="."]
-position = Vector2(0, 900)
+position = Vector2(0, 1200)
 physics_material_override = ExtResource("1_7f0lv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
-position = Vector2(798, 0)
+position = Vector2(750, 0)
 shape = SubResource("RectangleShape2D_trjgi")
 
 [node name="Left" type="StaticBody2D" parent="."]
+position = Vector2(0, 600)
 physics_material_override = ExtResource("1_7f0lv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
-position = Vector2(0, 448.5)
 shape = SubResource("RectangleShape2D_53cqu")
 
 [node name="Right" type="StaticBody2D" parent="."]
-position = Vector2(1600, 0)
+position = Vector2(1500, 600)
 physics_material_override = ExtResource("1_7f0lv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
-position = Vector2(0, 448.5)
 shape = SubResource("RectangleShape2D_53cqu")
 
 [node name="Ball" parent="." instance=ExtResource("1_4cffp")]
