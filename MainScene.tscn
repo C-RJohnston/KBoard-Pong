@@ -16,7 +16,8 @@ size = Vector2(20, 1200)
 [node name="Game" type="Node2D"]
 
 [node name="Ball" parent="." instance=ExtResource("1_4cffp")]
-position = Vector2(457, 118)
+z_index = 5
+position = Vector2(837, 520)
 
 [node name="Sounds" parent="." instance=ExtResource("3_ggpmk")]
 
