@@ -2,6 +2,8 @@ extends Node2D
 
 var path = preload("res://Assets/A4 Piano.wav")
 
+@export var lines_ref: Line
+
 static var frequency := {
 	"C": 261.63,
 	"C#": 277.18,
@@ -73,7 +75,7 @@ var keys_played: Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	lines_ref.collided.connect(play_chords)
 
 func _input(event):
 	for action in action_pitch.keys():
@@ -101,8 +103,26 @@ func _input(event):
 	
 		
 	
-func play_chords():
-	pass
+func play_chords(keys: Array):
+	for key in keys:
+		var dyad = dyads[action_pitch[key][0]]
+		var pitch = action_pitch[key][1]
+
+		var players: Array
+		for note in dyad:
+			var player = AudioStreamPlayer.new()
+			players.append(player)
+			add_child(player)
+			player.stream = path
+			var named_note = scales[chosen_scale][note[0]+note[1]]
+			player.pitch_scale = frequency[named_note]*pitch/440.0
+			player.play()
+		
+		for player in players:
+			await get_tree().create_timer(8.0).timeout
+			player.queue_free()
+
+
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

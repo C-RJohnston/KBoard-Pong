@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://ghltptrdlsn1"]
+[gd_scene load_steps=46 format=3 uid="uid://ghltptrdlsn1"]
 
 [ext_resource type="PackedScene" uid="uid://ulhrbx5se0db" path="res://Scenes/Ball/ball.tscn" id="1_4cffp"]
 [ext_resource type="PhysicsMaterial" uid="uid://er7xgtfunvb5" path="res://Materials/physmat.tres" id="1_7f0lv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dflo5uheaeuyi" path="res://CamCave/Sounds.tscn" id="3_ggpmk"]
 [ext_resource type="Texture2D" uid="uid://cock53x2c6aff" path="res://Sprites/PrototypeAssets/NewPositions.png" id="5_qwhbr"]
 [ext_resource type="Texture2D" uid="uid://bkt2gv1dg42nv" path="res://Sprites/Tiles/Part1/tile000.png" id="6_635gc"]
+[ext_resource type="PackedScene" uid="uid://c1vnu7apr3p6c" path="res://DorukZone B-)/MakeLines.tscn" id="7_5ukst"]
 [ext_resource type="Texture2D" uid="uid://mo713yvkoxlw" path="res://Sprites/Tiles/Part1/tile001.png" id="7_ujv2k"]
 [ext_resource type="Texture2D" uid="uid://crd3dfh22dqg0" path="res://Sprites/Tiles/Part1/tile002.png" id="8_3rh12"]
 [ext_resource type="Texture2D" uid="uid://dfa3n5446j36m" path="res://Sprites/Tiles/Part1/tile003.png" id="9_0lxqu"]
@@ -56,7 +57,8 @@ script = ExtResource("1_ij5ce")
 z_index = 5
 position = Vector2(837, 520)
 
-[node name="Sounds" parent="." instance=ExtResource("3_ggpmk")]
+[node name="Sounds" parent="." node_paths=PackedStringArray("lines_ref") instance=ExtResource("3_ggpmk")]
+lines_ref = NodePath("../MakeLines")
 
 [node name="Borders" type="Node2D" parent="."]
 
@@ -279,3 +281,5 @@ texture = ExtResource("41_i66nc")
 [node name="Bordr" type="Sprite2D" parent="."]
 position = Vector2(746, 602)
 texture = ExtResource("42_v1tj5")
+
+[node name="MakeLines" parent="." instance=ExtResource("7_5ukst")]

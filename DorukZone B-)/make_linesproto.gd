@@ -1,6 +1,7 @@
 class_name Line
 extends RigidBody2D
 static var scene = preload("res://DorukZone B-)/MakeLines.tscn")
+signal collided(keys: Array)
 
 var start
 var end
@@ -23,4 +24,4 @@ func get_points():
 	return [start, end]
 
 func _on_body_entered(body):
-	print(keys)
+	collided.emit(keys)
