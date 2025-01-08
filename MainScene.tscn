@@ -1,7 +1,8 @@
-[gd_scene load_steps=46 format=3 uid="uid://ghltptrdlsn1"]
+[gd_scene load_steps=49 format=3 uid="uid://ghltptrdlsn1"]
 
 [ext_resource type="PackedScene" uid="uid://ulhrbx5se0db" path="res://Scenes/Ball/ball.tscn" id="1_4cffp"]
 [ext_resource type="PhysicsMaterial" uid="uid://er7xgtfunvb5" path="res://Materials/physmat.tres" id="1_7f0lv"]
+[ext_resource type="Shader" path="res://MainScene.gdshader" id="1_8wgip"]
 [ext_resource type="Script" path="res://game.gd" id="1_ij5ce"]
 [ext_resource type="PackedScene" uid="uid://dflo5uheaeuyi" path="res://CamCave/Sounds.tscn" id="3_ggpmk"]
 [ext_resource type="AudioStream" uid="uid://c4xedy6jhw748" path="res://Assets/cs80 funky.wav" id="4_6f4bd"]
@@ -44,13 +45,48 @@
 [ext_resource type="Texture2D" uid="uid://co7ggkfupxeae" path="res://Sprites/Tiles/Part2/tile013.png" id="41_i66nc"]
 [ext_resource type="Texture2D" uid="uid://ccm56e4ftxqiu" path="res://Sprites/PrototypeAssets/bordrr.png" id="42_48cxy"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_681tj"]
+shader = ExtResource("1_8wgip")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.1
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trjgi"]
 size = Vector2(1500, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53cqu"]
 size = Vector2(20, 1200)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_81e0q"]
+shader = ExtResource("1_8wgip")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.5
+shader_parameter/warp_amount = 0.1
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 3.8e-07
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
+
 [node name="Game" type="Node2D"]
+material = SubResource("ShaderMaterial_681tj")
 script = ExtResource("1_ij5ce")
 wiggle_amount = 0.5
 
@@ -283,3 +319,9 @@ texture = ExtResource("41_i66nc")
 [node name="Bordr" type="Sprite2D" parent="."]
 position = Vector2(746, 602)
 texture = ExtResource("42_48cxy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1000
+material = SubResource("ShaderMaterial_81e0q")
+offset_right = 1500.0
+offset_bottom = 1200.0
