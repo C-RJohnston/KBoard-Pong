@@ -1,29 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://dflo5uheaeuyi"]
 
 [ext_resource type="Script" path="res://CamCave/sounds.gd" id="1_ie6hn"]
-
-[sub_resource type="AudioStream" id="AudioStream_4nnnd"]
+[ext_resource type="AudioStream" uid="uid://deknoskuo7tjo" path="res://Assets/A4 Piano.wav" id="2_cbgt1"]
 
 [node name="Sounds" type="Node2D"]
 script = ExtResource("1_ie6hn")
 
-[node name="AudioQ" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStream_4nnnd")
+[node name="Players" type="Node2D" parent="."]
 
-[node name="AudioW" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStream_4nnnd")
+[node name="Player0" type="AudioStreamPlayer" parent="Players"]
+stream = ExtResource("2_cbgt1")
 
-[node name="AudioE" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStream_4nnnd")
-
-[node name="AudioR" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStream_4nnnd")
-
-[node name="AudioT" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStream_4nnnd")
-
-[node name="AudioY" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStream_4nnnd")
-
-[node name="AudioU" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStream_4nnnd")
+[node name="Player1" type="AudioStreamPlayer" parent="Players"]
+stream = ExtResource("2_cbgt1")
