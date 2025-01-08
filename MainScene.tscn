@@ -70,7 +70,7 @@ size = Vector2(20, 1200)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_81e0q"]
 shader = ExtResource("1_8wgip")
-shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/resolution = Vector2(640, 360)
 shader_parameter/scan_line_amount = 0.5
 shader_parameter/warp_amount = 0.1
 shader_parameter/noise_amount = 0.03
