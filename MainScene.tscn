@@ -21,9 +21,8 @@ position = Vector2(837, 520)
 
 [node name="Sounds" parent="." instance=ExtResource("3_ggpmk")]
 
-[node name="MakeLines" parent="." node_paths=PackedStringArray("positions") instance=ExtResource("4_2lsfg")]
+[node name="MakeLines" parent="." instance=ExtResource("4_2lsfg")]
 z_index = 5
-positions = NodePath("Positions")
 
 [node name="Positions" type="Node2D" parent="MakeLines"]
 

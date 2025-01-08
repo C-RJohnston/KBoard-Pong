@@ -11,10 +11,6 @@ script = ExtResource("1_m3fv8")
 
 [node name="Line2D" type="Line2D" parent="."]
 
-[node name="Point1" type="Node2D" parent="."]
-
-[node name="Point2" type="Node2D" parent="."]
-
 [node name="Collision" type="CollisionPolygon2D" parent="."]
 build_mode = 1
 polygon = PackedVector2Array(0, 0, 0, 0)

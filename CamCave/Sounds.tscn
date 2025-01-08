@@ -1,15 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dflo5uheaeuyi"]
+[gd_scene load_steps=2 format=3 uid="uid://dflo5uheaeuyi"]
 
 [ext_resource type="Script" path="res://CamCave/sounds.gd" id="1_ie6hn"]
-[ext_resource type="AudioStream" uid="uid://deknoskuo7tjo" path="res://Assets/A4 Piano.wav" id="2_cbgt1"]
 
 [node name="Sounds" type="Node2D"]
 script = ExtResource("1_ie6hn")
-
-[node name="Players" type="Node2D" parent="."]
-
-[node name="Player0" type="AudioStreamPlayer" parent="Players"]
-stream = ExtResource("2_cbgt1")
-
-[node name="Player1" type="AudioStreamPlayer" parent="Players"]
-stream = ExtResource("2_cbgt1")

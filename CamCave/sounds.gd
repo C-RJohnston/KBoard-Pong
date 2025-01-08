@@ -16,57 +16,60 @@ static var frequency := {
 	"A#": 466.16,
 	"B": 493.88
 }
-static var modes:={
-	"dorian": ["C", "D", "D#", "F", "G", "A", "A#",],
-	"aeorian": ["C", "D", "D#", "F", "G", "G#", "A#"]
+static var scales:={
+	"Cmaj": ["C", "D", "E", "F", "G", "A", "B"],
+	"Cm": ["C", "D", "D#", "F", "G", "G#", "A#"],
+	"Cdorian": ["C", "D", "D#", "F", "G", "A", "A#",],
+	"Caeorian": ["C", "D", "D#", "F", "G", "G#", "A#"],
+	"Cblues": ["C", "D", "D#", "E", "G", "A"],
+	"Cphrygian": ["C", "C#", "D#", "F", "G", "G#", "A#"]
 	}
+@export_enum("Cmaj", "Cm", "Cdorian", "Caeorian", "Cblues", "Cphyrgian") var chosen_scale = "Cmaj"
 
 static var dyads:= [
-	["C", "D#"],["C", "F#"],["C", "G"],["C", "A"], ["C", "A#"]
+		[[0,0],[2,0]],[[0,0],[4,-1]],[[0,0],[4,0]],[[2,0],[4,0]],[[0,0],[6,-1]],[[0,0],[6,0]],[[3,0],[6,0]]
 	]
 
 static var action_pitch:= {
-	"1": [0.0,0.125],
-	"2": [1.0,0.125], 
-	"3": [2.0,0.125],
-	"4": [3.0,0.125],
-	"5": [4.0,0.125],
-	"6": [0.0,0.25],
-	"7": [1.0,0.25],
-	"8": [2.0,0.25],
-	"9": [3.0,0.25],
-	"0": [4.0,0.25],
-	"Q": [0.0,0.5],
-	"W": [1.0,0.5],
-	"E": [2.0,0.5],
-	"R": [3.0,0.5],
-	"T": [4.0,0.5],
-	"Y": [0.0,1],
-	"U": [1.0,1],
-	"I": [2.0,1],
-	"O": [3.0,1],
-	"P": [4.0,1],
-	"A": [0,2],
-	"S": [1,2],
-	"D": [2,2],
-	"F": [3,2],
-	"G": [4,2],
-	"H": [0,4],
-	"J": [1,4],
-	"K": [2,4],
-	"L": [3,4],
-	"Z": [4,4],
-	"X": [0,8],
-	"C": [1,8],
-	"V": [2,8],
-	"B": [3,8],
-	"N": [4,8],
-	"M": [0,16]
+	"1": [0,0.25],
+	"2": [1,0.25], 
+	"3": [2,0.25],
+	"4": [3,0.25],
+	"5": [4,0.25],
+	"6": [5,0.25],
+	"7": [6,0.25],
+	"8": [0,0.25],
+	"9": [1,0.5],
+	"0": [2,0.5],
+	"Q": [3,0.5],
+	"W": [4,0.5],
+	"E": [5,0.5],
+	"R": [6,0.5],
+	"T": [0,1],
+	"Y": [1,1],
+	"U": [2,1],
+	"I": [3,1],
+	"O": [4,1],
+	"P": [5,1],
+	"A": [6,1],
+	"S": [0,2],
+	"D": [1,2],
+	"F": [2,2],
+	"G": [3,2],
+	"H": [4,2],
+	"J": [5,2],
+	"K": [6,2],
+	"L": [0,4],
+	"Z": [1,4],
+	"X": [2,4],
+	"C": [3,4],
+	"V": [4,4],
+	"B": [5,4],
+	"N": [6,4],
+	"M": [0,8]
 }
 var keys_played: Array
 
-
-@onready var players = $Players.get_children()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -78,9 +81,21 @@ func _input(event):
 			keys_played.append(action)
 			var dyad = dyads[action_pitch[action][0]]
 			var pitch = action_pitch[action][1]
-			for i in range(len(players)):
-				players[i].pitch_scale = frequency[dyad[i]]*pitch/440.00
-				players[i].play()
+
+			var players: Array
+			for note in dyad:
+				var player = AudioStreamPlayer.new()
+				players.append(player)
+				add_child(player)
+				player.stream = path
+				var named_note = scales[chosen_scale][note[0]+note[1]]
+				player.pitch_scale = frequency[named_note]*pitch/440.0
+				player.play()
+			
+			for player in players:
+				await get_tree().create_timer(8.0).timeout
+				player.queue_free()
+				
 		elif event.is_action_released(action) and action in keys_played:
 			keys_played.erase(action)
 	
