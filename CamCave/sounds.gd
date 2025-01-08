@@ -1,6 +1,7 @@
 extends Node2D
 
-var path = preload("res://Assets/A4 Piano.wav")
+@export var path = preload("res://Assets/A4 Piano.wav")
+@export var chord_path = preload("res://Assets/bass a4.wav")
 
 #@export var lines_ref: Line
 
@@ -23,10 +24,9 @@ static var scales:={
 	"Cm": ["C", "D", "D#", "F", "G", "G#", "A#"],
 	"Cdorian": ["C", "D", "D#", "F", "G", "A", "A#",],
 	"Caeorian": ["C", "D", "D#", "F", "G", "G#", "A#"],
-	"Cblues": ["C", "D", "D#", "E", "G", "A"],
 	"Cphrygian": ["C", "C#", "D#", "F", "G", "G#", "A#"]
 	}
-@export_enum("Cmaj", "Cm", "Cdorian", "Caeorian", "Cblues", "Cphyrgian") var chosen_scale = "Cmaj"
+@export_enum("Cmaj", "Cm", "Cdorian", "Caeorian", "Cphrygian") var chosen_scale = "Cmaj"
 
 static var dyads:= [
 		[[0,0],[2,0]],[[0,0],[4,-1]],[[0,0],[4,0]],[[2,0],[4,0]],[[0,0],[6,-1]],[[0,0],[6,0]],[[3,0],[6,0]]
@@ -111,12 +111,11 @@ func play_chords(keys: Array):
 		var dyad = dyads[action_pitch[key][0]]
 		var pitch = action_pitch[key][1]
 
-		print(dyad.size())
 		for note in dyad:
 			var player = AudioStreamPlayer.new()
 			players.append(player)
 			add_child(player)
-			player.stream = path
+			player.stream = chord_path
 			var named_note = scales[chosen_scale][note[0]+note[1]]
 			player.pitch_scale = frequency[named_note]*pitch/440.0
 			player.play()

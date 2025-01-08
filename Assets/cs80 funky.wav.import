@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c4xedy6jhw748"
+path="res://.godot/imported/cs80 funky.wav-a32aa9a0ffc3169582392e2fd26114ec.sample"
+
+[deps]
+
+source_file="res://Assets/cs80 funky.wav"
+dest_files=["res://.godot/imported/cs80 funky.wav-a32aa9a0ffc3169582392e2fd26114ec.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
