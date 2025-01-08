@@ -41,7 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://dvae7cq7kjp7a" path="res://Sprites/Tiles/Part2/tile011.png" id="39_fp4i8"]
 [ext_resource type="Texture2D" uid="uid://dtwdpdkpnisfr" path="res://Sprites/Tiles/Part2/tile012.png" id="40_en5tx"]
 [ext_resource type="Texture2D" uid="uid://co7ggkfupxeae" path="res://Sprites/Tiles/Part2/tile013.png" id="41_i66nc"]
-[ext_resource type="Texture2D" uid="uid://tjxeqv3ey22h" path="res://Sprites/PrototypeAssets/Bordr.png" id="42_v1tj5"]
+[ext_resource type="Texture2D" uid="uid://ccm56e4ftxqiu" path="res://Sprites/PrototypeAssets/bordrr.png" id="42_48cxy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trjgi"]
 size = Vector2(1500, 20)
@@ -56,19 +56,27 @@ script = ExtResource("1_ij5ce")
 z_index = 5
 position = Vector2(837, 520)
 
+[node name="Ball2" parent="." instance=ExtResource("1_4cffp")]
+z_index = 5
+position = Vector2(218, 498)
+
+[node name="Ball3" parent="." instance=ExtResource("1_4cffp")]
+z_index = 5
+position = Vector2(837, 899)
+
 [node name="Sounds" parent="." instance=ExtResource("3_ggpmk")]
 
 [node name="Borders" type="Node2D" parent="."]
 
 [node name="Top" type="StaticBody2D" parent="Borders"]
-position = Vector2(750, 33)
+position = Vector2(750, 13)
 physics_material_override = ExtResource("1_7f0lv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Top"]
 shape = SubResource("RectangleShape2D_trjgi")
 
 [node name="Bottom" type="StaticBody2D" parent="Borders"]
-position = Vector2(0, 1165)
+position = Vector2(0, 1187)
 physics_material_override = ExtResource("1_7f0lv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Bottom"]
@@ -76,14 +84,14 @@ position = Vector2(750, 0)
 shape = SubResource("RectangleShape2D_trjgi")
 
 [node name="Left" type="StaticBody2D" parent="Borders"]
-position = Vector2(27, 600)
+position = Vector2(6, 600)
 physics_material_override = ExtResource("1_7f0lv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Left"]
 shape = SubResource("RectangleShape2D_53cqu")
 
 [node name="Right" type="StaticBody2D" parent="Borders"]
-position = Vector2(1463, 600)
+position = Vector2(1484, 600)
 physics_material_override = ExtResource("1_7f0lv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Right"]
@@ -278,4 +286,4 @@ texture = ExtResource("41_i66nc")
 
 [node name="Bordr" type="Sprite2D" parent="."]
 position = Vector2(746, 602)
-texture = ExtResource("42_v1tj5")
+texture = ExtResource("42_48cxy")
