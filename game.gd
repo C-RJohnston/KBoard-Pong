@@ -64,8 +64,12 @@ func add_point(action: String):
 		
 		var line = Line.new_line(start_pos, end_pos,[active_actions[-1], active_actions[-2]])
 		add_child(line)
+		line.collided.connect(sounds_play_sound)
 		lines.append(line)
-	
+
+func sounds_play_sound(keys: Array):
+	$Sounds.play_chords(keys)
+
 func remove_point(action: String):
 	active_actions.erase(action)
 	var action_position = action_positions[action]

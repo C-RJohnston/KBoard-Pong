@@ -2,7 +2,7 @@ extends Node2D
 
 var path = preload("res://Assets/A4 Piano.wav")
 
-@export var lines_ref: Line
+#@export var lines_ref: Line
 
 static var frequency := {
 	"C": 261.63,
@@ -75,11 +75,12 @@ var keys_played: Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	lines_ref.collided.connect(play_chords)
+	pass
+	#lines_ref.collided.connect(play_chords)
 
 func _input(event):
 	for action in action_pitch.keys():
-		if event.is_action_pressed(action) and action not in keys_played:
+		if event.is_action_pressed(action) and action not in keys_played and keys_played.size()<=4:
 			keys_played.append(action)
 			var dyad = dyads[action_pitch[action][0]]
 			var pitch = action_pitch[action][1]
@@ -104,11 +105,13 @@ func _input(event):
 		
 	
 func play_chords(keys: Array):
+	
+	var players: Array
 	for key in keys:
 		var dyad = dyads[action_pitch[key][0]]
 		var pitch = action_pitch[key][1]
 
-		var players: Array
+		print(dyad.size())
 		for note in dyad:
 			var player = AudioStreamPlayer.new()
 			players.append(player)
@@ -118,9 +121,9 @@ func play_chords(keys: Array):
 			player.pitch_scale = frequency[named_note]*pitch/440.0
 			player.play()
 		
-		for player in players:
-			await get_tree().create_timer(8.0).timeout
-			player.queue_free()
+	for player in players:
+		await get_tree().create_timer(8.0).timeout
+		player.queue_free()
 
 
 	
