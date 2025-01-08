@@ -51,18 +51,11 @@ size = Vector2(20, 1200)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ij5ce")
+wiggle_amount = 0.5
 
 [node name="Ball" parent="." instance=ExtResource("1_4cffp")]
 z_index = 5
 position = Vector2(837, 520)
-
-[node name="Ball2" parent="." instance=ExtResource("1_4cffp")]
-z_index = 5
-position = Vector2(218, 498)
-
-[node name="Ball3" parent="." instance=ExtResource("1_4cffp")]
-z_index = 5
-position = Vector2(837, 899)
 
 [node name="Sounds" parent="." instance=ExtResource("3_ggpmk")]
 
