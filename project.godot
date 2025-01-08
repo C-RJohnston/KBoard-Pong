@@ -213,3 +213,4 @@ M={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.0960707, 0.165666, 0.451019, 1)
