@@ -114,25 +114,25 @@ position = Vector2(1157, 662)
 position = Vector2(1277, 686)
 
 [node name="Z" type="Node2D" parent="MakeLines/Positions"]
-position = Vector2(295, 856)
+position = Vector2(172, 863)
 
 [node name="X" type="Node2D" parent="MakeLines/Positions"]
-position = Vector2(445, 890)
+position = Vector2(308, 970)
 
 [node name="C" type="Node2D" parent="MakeLines/Positions"]
-position = Vector2(605, 902)
+position = Vector2(503, 975)
 
 [node name="V" type="Node2D" parent="MakeLines/Positions"]
-position = Vector2(739, 912)
+position = Vector2(680, 1002)
 
 [node name="B" type="Node2D" parent="MakeLines/Positions"]
-position = Vector2(897, 890)
+position = Vector2(885, 980)
 
 [node name="N" type="Node2D" parent="MakeLines/Positions"]
-position = Vector2(1029, 886)
+position = Vector2(1121, 974)
 
 [node name="M" type="Node2D" parent="MakeLines/Positions"]
-position = Vector2(1173, 876)
+position = Vector2(1288, 992)
 
 [node name="Borders" type="Node2D" parent="."]
 
