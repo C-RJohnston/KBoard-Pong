@@ -18,6 +18,10 @@ boot_splash/image="res://Assets/0A2BBC02-5BFB-4D80-A40E-0ECEA07350F6.png"
 boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
+[audio]
+
+general/default_playback_type.web=0
+
 [display]
 
 window/size/viewport_width=1500
@@ -225,5 +229,6 @@ ESC={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+shader_compiler/shader_cache/compress=false
 environment/defaults/default_clear_color=Color(0.0960707, 0.165666, 0.451019, 1)
 viewport/hdr_2d=true

@@ -153,6 +153,7 @@ physics_material_override = ExtResource("1_7f0lv")
 shape = SubResource("RectangleShape2D_53cqu")
 
 [node name="Bordr2" type="Sprite2D" parent="Borders"]
+visible = false
 material = SubResource("ShaderMaterial_rlji8")
 position = Vector2(746, 602)
 texture = ExtResource("42_48cxy")
@@ -162,6 +163,7 @@ position = Vector2(746, 602)
 texture = ExtResource("42_48cxy")
 
 [node name="Positions" type="Node2D" parent="."]
+z_index = 2
 
 [node name="1" type="Sprite2D" parent="Positions"]
 position = Vector2(105.25, 197)
@@ -612,10 +614,11 @@ grow_vertical = 2
 color = Color(0.2, 0.2, 0.2, 0.4)
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+z_index = 6
 offset_left = 343.0
 offset_top = 286.0
 offset_right = 1174.0
-offset_bottom = 616.0
+offset_bottom = 668.0
 theme = ExtResource("45_m8127")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer"]
@@ -642,7 +645,7 @@ text = "-"
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("45_m8127")
-text = "⏚⏃⌰⌰⌇"
+text = "Balls"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -663,7 +666,10 @@ text = "  -  "
 
 [node name="Label" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer/Speed"]
 layout_mode = 2
-text = "    ⌇⌿⟒⟒⎅     "
+size_flags_horizontal = 3
+text = "Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SpeedPlus" type="Button" parent="PanelContainer/ScrollContainer/VBoxContainer/Speed"]
 layout_mode = 2
@@ -678,7 +684,7 @@ size_flags_vertical = 3
 [node name="Label" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer/Instrument"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "⟟⋏⌇⏁⍀⎍⋔⟒⋏⏁"
+text = "Instrument"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -689,14 +695,14 @@ alignment = 1
 selected = 0
 allow_reselect = true
 item_count = 5
-popup/item_0/text = "⌇⊬⋏⏁⊑⟒⌇⟟⋉⟒⍀"
-popup/item_1/text = "⌿⟟⏃⋏⍜"
+popup/item_0/text = "Synthesizer"
+popup/item_1/text = "Piano"
 popup/item_1/id = 1
-popup/item_2/text = "☌⎍⟟⏁⏃⍀"
+popup/item_2/text = "Guitar"
 popup/item_2/id = 2
-popup/item_3/text = "⋔⏃⍀⟟⋔⏚⏃"
+popup/item_3/text = "Marimba"
 popup/item_3/id = 3
-popup/item_4/text = "⎎⌰⎍⏁⟒"
+popup/item_4/text = "Flute"
 popup/item_4/id = 4
 
 [node name="Scale" type="HBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer"]
@@ -705,7 +711,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer/Scale"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "⌇☊⏃⌰⟒"
+text = "Scale"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -715,14 +721,14 @@ size_flags_horizontal = 3
 alignment = 1
 selected = 0
 item_count = 5
-popup/item_0/text = "⋔⏃⟊⍜⍀"
-popup/item_1/text = "⋔⟟⋏⍜⍀"
+popup/item_0/text = "Major"
+popup/item_1/text = "Minor"
 popup/item_1/id = 1
-popup/item_2/text = "⎅⍜⍀⟟⏃⋏"
+popup/item_2/text = "Dorian"
 popup/item_2/id = 2
-popup/item_3/text = "⏃⟒⍀⟟⍜⏃⋏"
+popup/item_3/text = "Aeorian"
 popup/item_3/id = 4
-popup/item_4/text = "⌿⊑⍀⊬☌⟟⏃⋏"
+popup/item_4/text = "Phyrgian"
 popup/item_4/id = 5
 
 [node name="ExitMenu" type="HBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer"]
@@ -733,7 +739,8 @@ size_flags_horizontal = 4
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 1
-text = "☊⌰⍜⌇⟒ ⋔⟒⋏⎍"
+text = "Close Menu
+(Escape to Toggle)"
 
 [node name="BG" type="Node2D" parent="."]
 z_index = -9
