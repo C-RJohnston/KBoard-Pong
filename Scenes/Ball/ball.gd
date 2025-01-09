@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 # Speeds of the ball
-@export var MAX_SPEED = 1000
+@export var MAX_SPEED = 4000
 @export var MIN_SPEED = 100
 @export var DEFAULT_SPEED = 400
 # Maximum number of points in the trail
@@ -16,6 +16,12 @@ func _ready():
 	line.clear_points()
 	queue.clear()
 
+func set_speed(amount: float):
+	var speed = linear_velocity.length()
+	var unit = linear_velocity / speed
+	var new_speed = clamp(amount, MIN_SPEED, MAX_SPEED)
+	set_axis_velocity(unit * new_speed)
+
 func increase_speed(amount: float):
 	var speed = linear_velocity.length()
 	var unit = linear_velocity / speed
@@ -26,7 +32,6 @@ func decrease_speed(amount: float):
 	var speed = linear_velocity.length()
 	var unit = linear_velocity / speed
 	var new_speed = max(MIN_SPEED, speed - amount)
-	print(new_speed)
 	set_axis_velocity(unit * new_speed)
 
 
@@ -38,3 +43,7 @@ func _process(delta):
 	line.clear_points()
 	for point in queue:
 		line.add_point(point)
+
+func _on_body_entered(body):
+	if body.is_in_group("wall"):
+		$AudioStreamPlayer.play()

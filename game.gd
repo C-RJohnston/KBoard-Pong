@@ -4,6 +4,7 @@ extends Node2D
 var wiggle_timer = 0.0
 @export var wiggle_speed = 10.0  # Speed of the wiggle
 @export var wiggle_amount = 0.1  # Amount of the wiggle (rotation in radians)
+var ball_speed
 
 var ball_scene = load("res://Scenes/Ball/ball.tscn")
 var glowing = false
@@ -57,7 +58,7 @@ var lines: Array
 var _delta : float
 
 func _ready():
-	pass
+	ball_speed = $Ball.linear_velocity.length()
 
 func _physics_process(delta: float) -> void:
 	_delta = delta
@@ -118,13 +119,27 @@ func _on_ball_minus_pressed() -> void:
 
 func _on_ball_plus_pressed() -> void:
 	var new_ball = ball_scene.instantiate()
+	add_child(new_ball)
 	var viewport_size = get_viewport_rect().size
 	var random_x = randf_range(0, viewport_size.x)
 	var random_y = randf_range(0, viewport_size.y)
 	var ball_position = Vector2(random_x, random_y)
 	new_ball.position = ball_position
-	add_child(new_ball)
+	new_ball.set_speed(ball_speed)
 
 func _on_exit_button_pressed() -> void:
 	$PanelContainer.visible = false
 	$"Bg Fade".visible = false
+
+
+func _on_speed_minus_pressed():
+	var nodes_in_group = get_tree().get_nodes_in_group('Ball')
+	for ball in nodes_in_group:
+		ball.decrease_speed(50)
+		ball_speed-=50
+
+func _on_speed_plus_pressed():
+	var nodes_in_group = get_tree().get_nodes_in_group('Ball')
+	for ball in nodes_in_group:
+		ball.increase_speed(50)
+		ball_speed+=50

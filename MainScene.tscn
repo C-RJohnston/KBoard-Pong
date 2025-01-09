@@ -44,7 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://dtwdpdkpnisfr" path="res://Sprites/Tiles/Part2/tile012.png" id="40_en5tx"]
 [ext_resource type="Texture2D" uid="uid://co7ggkfupxeae" path="res://Sprites/Tiles/Part2/tile013.png" id="41_i66nc"]
 [ext_resource type="Texture2D" uid="uid://ccm56e4ftxqiu" path="res://Sprites/PrototypeAssets/bordrr.png" id="42_48cxy"]
-[ext_resource type="Theme" uid="uid://cb4ofx1tjqlvo" path="res://GameTheme.tres" id="45_m8127"]
+[ext_resource type="Theme" uid="uid://bhlt6elvpnb2p" path="res://GameTheme.tres" id="45_m8127"]
 [ext_resource type="Texture2D" uid="uid://p4ethvnkkqdg" path="res://Sprites/bgtile3.png" id="46_g7fx2"]
 [ext_resource type="AudioStream" uid="uid://blela3gy51lh3" path="res://Assets/tone.wav" id="46_nhb4b"]
 
@@ -117,13 +117,13 @@ path = ExtResource("4_6f4bd")
 
 [node name="Borders" type="Node2D" parent="."]
 
-[node name="Top" type="StaticBody2D" parent="Borders"]
+[node name="Top" type="StaticBody2D" parent="Borders" groups=["wall"]]
 position = Vector2(750, 13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Top"]
 shape = SubResource("RectangleShape2D_trjgi")
 
-[node name="Bottom" type="StaticBody2D" parent="Borders"]
+[node name="Bottom" type="StaticBody2D" parent="Borders" groups=["wall"]]
 position = Vector2(0, 1187)
 physics_material_override = ExtResource("1_7f0lv")
 
@@ -131,14 +131,14 @@ physics_material_override = ExtResource("1_7f0lv")
 position = Vector2(750, 0)
 shape = SubResource("RectangleShape2D_trjgi")
 
-[node name="Left" type="StaticBody2D" parent="Borders"]
+[node name="Left" type="StaticBody2D" parent="Borders" groups=["wall"]]
 position = Vector2(6, 600)
 physics_material_override = ExtResource("1_7f0lv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Left"]
 shape = SubResource("RectangleShape2D_53cqu")
 
-[node name="Right" type="StaticBody2D" parent="Borders"]
+[node name="Right" type="StaticBody2D" parent="Borders" groups=["wall"]]
 position = Vector2(1484, 600)
 physics_material_override = ExtResource("1_7f0lv")
 
@@ -828,6 +828,8 @@ autoplay = true
 
 [connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/Balls/BallMinus" to="." method="_on_ball_minus_pressed"]
 [connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/Balls/BallPlus" to="." method="_on_ball_plus_pressed"]
+[connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/Speed/SpeedMinus" to="." method="_on_speed_minus_pressed"]
+[connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/Speed/SpeedPlus" to="." method="_on_speed_plus_pressed"]
 [connection signal="item_selected" from="PanelContainer/ScrollContainer/VBoxContainer/Instrument/InstrumentOption" to="Sounds" method="_on_instrument_option_item_selected"]
 [connection signal="item_selected" from="PanelContainer/ScrollContainer/VBoxContainer/Scale/ScaleOption" to="Sounds" method="_on_scale_option_item_selected"]
 [connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/ExitMenu/ExitButton" to="." method="_on_exit_button_pressed"]
