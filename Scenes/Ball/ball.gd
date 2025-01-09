@@ -13,6 +13,7 @@ func _ready():
 	queue.clear()
 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	queue.push_front(position)

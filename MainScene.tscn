@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://game.gd" id="1_ij5ce"]
 [ext_resource type="PackedScene" uid="uid://dflo5uheaeuyi" path="res://CamCave/Sounds.tscn" id="3_ggpmk"]
 [ext_resource type="AudioStream" uid="uid://c4xedy6jhw748" path="res://Assets/cs80 funky.wav" id="4_6f4bd"]
-[ext_resource type="Texture2D" uid="uid://cock53x2c6aff" path="res://Sprites/PrototypeAssets/NewPositions.png" id="5_qwhbr"]
 [ext_resource type="Texture2D" uid="uid://bkt2gv1dg42nv" path="res://Sprites/Tiles/Part1/tile000.png" id="6_635gc"]
 [ext_resource type="Texture2D" uid="uid://mo713yvkoxlw" path="res://Sprites/Tiles/Part1/tile001.png" id="7_ujv2k"]
 [ext_resource type="Texture2D" uid="uid://crd3dfh22dqg0" path="res://Sprites/Tiles/Part1/tile002.png" id="8_3rh12"]
@@ -44,6 +43,8 @@
 [ext_resource type="Texture2D" uid="uid://dtwdpdkpnisfr" path="res://Sprites/Tiles/Part2/tile012.png" id="40_en5tx"]
 [ext_resource type="Texture2D" uid="uid://co7ggkfupxeae" path="res://Sprites/Tiles/Part2/tile013.png" id="41_i66nc"]
 [ext_resource type="Texture2D" uid="uid://ccm56e4ftxqiu" path="res://Sprites/PrototypeAssets/bordrr.png" id="42_48cxy"]
+[ext_resource type="Texture2D" uid="uid://cl4lpuq1hddkq" path="res://Sprites/PrototypeAssets/linebg.png" id="45_7k5u8"]
+[ext_resource type="Theme" uid="uid://cb4ofx1tjqlvo" path="res://GameTheme.tres" id="45_m8127"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_681tj"]
 shader = ExtResource("1_8wgip")
@@ -76,7 +77,7 @@ size = Vector2(20, 1200)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_81e0q"]
 shader = ExtResource("1_8wgip")
-shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/resolution = Vector2(800, 600)
 shader_parameter/scan_line_amount = 0.5
 shader_parameter/warp_amount = 0.1
 shader_parameter/noise_amount = 0.03
@@ -105,7 +106,7 @@ position = Vector2(743, 572)
 
 [node name="Sounds" parent="." instance=ExtResource("3_ggpmk")]
 path = ExtResource("4_6f4bd")
-chosen_scale = "Cphrygian"
+chosen_scale = "Cm"
 
 [node name="Borders" type="Node2D" parent="."]
 
@@ -138,10 +139,9 @@ physics_material_override = ExtResource("1_7f0lv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Right"]
 shape = SubResource("RectangleShape2D_53cqu")
 
-[node name="Positions2" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(751, 602)
-texture = ExtResource("5_qwhbr")
+[node name="Bordr" type="Sprite2D" parent="Borders"]
+position = Vector2(746, 602)
+texture = ExtResource("42_48cxy")
 
 [node name="Positions" type="Node2D" parent="."]
 
@@ -325,12 +325,122 @@ position = Vector2(1318, 953)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("41_i66nc")
 
-[node name="Bordr" type="Sprite2D" parent="."]
-position = Vector2(746, 602)
-texture = ExtResource("42_48cxy")
-
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 1000
 material = SubResource("ShaderMaterial_81e0q")
 offset_right = 1500.0
 offset_bottom = 1200.0
+
+[node name="Linebg" type="Sprite2D" parent="."]
+modulate = Color(0.619608, 0.843137, 0.584314, 0.0901961)
+z_index = -3
+position = Vector2(750, 604)
+texture = ExtResource("45_7k5u8")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 355.0
+offset_top = 140.0
+offset_right = 1186.0
+offset_bottom = 524.0
+theme = ExtResource("45_m8127")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("45_m8127")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Balls" type="HBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BallMinus" type="Button" parent="PanelContainer/ScrollContainer/VBoxContainer/Balls"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-"
+
+[node name="Label" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer/Balls"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("45_m8127")
+text = "Balls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BallPlus" type="Button" parent="PanelContainer/ScrollContainer/VBoxContainer/Balls"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+"
+
+[node name="Speed" type="HBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SpeedMinus" type="Button" parent="PanelContainer/ScrollContainer/VBoxContainer/Speed"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "  -  "
+
+[node name="Label" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer/Speed"]
+layout_mode = 2
+text = "      Speed      "
+
+[node name="SpeedPlus" type="Button" parent="PanelContainer/ScrollContainer/VBoxContainer/Speed"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "  +  "
+
+[node name="Instrument" type="HBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer/Instrument"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Instrument"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/ScrollContainer/VBoxContainer/Instrument"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+selected = 0
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "Synth 1"
+popup/item_1/text = "Piano"
+popup/item_1/id = 1
+popup/item_2/text = "Guitar"
+popup/item_2/id = 2
+
+[node name="Scale" type="HBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer/Scale"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Scale"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/ScrollContainer/VBoxContainer/Scale"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+selected = 0
+item_count = 1
+popup/item_0/text = "Phyrgian"
+
+[node name="ExitMenu" type="HBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="PanelContainer/ScrollContainer/VBoxContainer/ExitMenu"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Close Menu
+(Escape)"

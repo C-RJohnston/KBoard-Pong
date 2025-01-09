@@ -1,0 +1,84 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bhlt6elvpnb2p"]
+
+[ext_resource type="FontFile" uid="uid://cto4fmjgy51ha" path="res://Assets/fonts/Facade-font-master/fonts/Facade-Ouest.otf" id="1_rs410"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmrvf"]
+bg_color = Color(0.184177, 0.365572, 0.246747, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vian"]
+bg_color = Color(0.317238, 0.582843, 0.407611, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iblxc"]
+bg_color = Color(0.336003, 0.460674, 0.297318, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7v62e"]
+bg_color = Color(0.622386, 0.557154, 0.784422, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyunq"]
+bg_color = Color(0.227451, 0.466667, 0.745098, 0.752941)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwa13"]
+bg_color = Color(0.351963, 0.541708, 0.377627, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+
+[resource]
+Button/font_sizes/font_size = 42
+Button/fonts/font = ExtResource("1_rs410")
+Button/styles/hover = SubResource("StyleBoxFlat_gmrvf")
+Button/styles/normal = SubResource("StyleBoxFlat_6vian")
+Button/styles/pressed = SubResource("StyleBoxFlat_iblxc")
+Label/font_sizes/font_size = 42
+Label/fonts/font = ExtResource("1_rs410")
+Label/styles/normal = SubResource("StyleBoxFlat_7v62e")
+OptionButton/font_sizes/font_size = 42
+OptionButton/fonts/font = ExtResource("1_rs410")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_kyunq")
+PopupMenu/font_sizes/font_size = 32
+PopupMenu/fonts/font = ExtResource("1_rs410")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_gwa13")
