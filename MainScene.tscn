@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ghltptrdlsn1"]
+[gd_scene load_steps=55 format=3 uid="uid://ghltptrdlsn1"]
 
 [ext_resource type="PackedScene" uid="uid://ulhrbx5se0db" path="res://Scenes/Ball/ball.tscn" id="1_4cffp"]
 [ext_resource type="PhysicsMaterial" uid="uid://er7xgtfunvb5" path="res://Materials/physmat.tres" id="1_7f0lv"]
@@ -77,6 +77,13 @@ size = Vector2(1500, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53cqu"]
 size = Vector2(20, 1200)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rlji8"]
+shader = ExtResource("8_jqaqw")
+shader_parameter/glow_color = Color(0.975181, 0.893681, 0.931389, 1)
+shader_parameter/glow_power = 2.6
+shader_parameter/glow_shift = 2.9
+shader_parameter/glow_radius = 7.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xg7hi"]
 shader = ExtResource("8_jqaqw")
 shader_parameter/glow_color = Color(0.761626, 0.344752, 0.577757, 1)
@@ -144,6 +151,11 @@ physics_material_override = ExtResource("1_7f0lv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Right"]
 shape = SubResource("RectangleShape2D_53cqu")
+
+[node name="Bordr2" type="Sprite2D" parent="Borders"]
+material = SubResource("ShaderMaterial_rlji8")
+position = Vector2(746, 602)
+texture = ExtResource("42_48cxy")
 
 [node name="Bordr" type="Sprite2D" parent="Borders"]
 position = Vector2(746, 602)
@@ -676,12 +688,16 @@ size_flags_horizontal = 3
 alignment = 1
 selected = 0
 allow_reselect = true
-item_count = 3
+item_count = 5
 popup/item_0/text = "⌇⊬⋏⏁⊑⟒⌇⟟⋉⟒⍀"
 popup/item_1/text = "⌿⟟⏃⋏⍜"
 popup/item_1/id = 1
 popup/item_2/text = "☌⎍⟟⏁⏃⍀"
 popup/item_2/id = 2
+popup/item_3/text = "⋔⏃⍀⟟⋔⏚⏃"
+popup/item_3/id = 3
+popup/item_4/text = "⎎⌰⎍⏁⟒"
+popup/item_4/id = 4
 
 [node name="Scale" type="HBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
