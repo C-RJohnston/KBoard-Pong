@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://bhlt6elvpnb2p"]
 
-[ext_resource type="FontFile" uid="uid://cto4fmjgy51ha" path="res://Assets/fonts/Facade-font-master/fonts/Facade-Ouest.otf" id="1_rs410"]
+[ext_resource type="FontFile" uid="uid://pogw7xuqa101" path="res://Assets/fonts/fonts/Awooga.ttf" id="1_vsmyn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmrvf"]
 bg_color = Color(0.184177, 0.365572, 0.246747, 1)
@@ -69,16 +69,16 @@ border_width_bottom = 12
 
 [resource]
 Button/font_sizes/font_size = 42
-Button/fonts/font = ExtResource("1_rs410")
+Button/fonts/font = ExtResource("1_vsmyn")
 Button/styles/hover = SubResource("StyleBoxFlat_gmrvf")
 Button/styles/normal = SubResource("StyleBoxFlat_6vian")
 Button/styles/pressed = SubResource("StyleBoxFlat_iblxc")
 Label/font_sizes/font_size = 42
-Label/fonts/font = ExtResource("1_rs410")
+Label/fonts/font = ExtResource("1_vsmyn")
 Label/styles/normal = SubResource("StyleBoxFlat_7v62e")
 OptionButton/font_sizes/font_size = 42
-OptionButton/fonts/font = ExtResource("1_rs410")
+OptionButton/fonts/font = ExtResource("1_vsmyn")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_kyunq")
 PopupMenu/font_sizes/font_size = 32
-PopupMenu/fonts/font = ExtResource("1_rs410")
+PopupMenu/fonts/font = ExtResource("1_vsmyn")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_gwa13")

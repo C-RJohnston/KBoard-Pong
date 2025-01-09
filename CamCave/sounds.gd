@@ -155,8 +155,8 @@ func _on_instrument_option_item_selected(index):
 			path = preload("res://Assets/guitar a4.wav")
 			chord_path = preload("res://Assets/guitar a4.wav")
 		3:
-			path = preload("res://Assets/marimba_A4.wav")
-			chord_path = preload("res://Assets/marimba_A4.wav")
+			path = preload("res://Assets/newmarimba.wav")
+			chord_path = preload("res://Assets/newmarimba.wav")
 		4:
 			path = preload("res://Assets/fluteA4.wav")
 			chord_path = preload("res://Assets/fluteA4.wav")
