@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://bkt2gv1dg42nv" path="res://Sprites/Tiles/Part1/tile000.png" id="1_ryyj7"]
 [ext_resource type="Script" path="res://Scenes/Icon/icon.gd" id="1_x5kcn"]
 
-[sub_resource type="Gradient" id="Gradient_mxcay"]
+[sub_resource type="Gradient" id="Gradient_q2xt3"]
 offsets = PackedFloat32Array(0, 0.984615)
 colors = PackedColorArray(1.8, 1.8, 1.8, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_l0nu0"]
-gradient = SubResource("Gradient_mxcay")
+gradient = SubResource("Gradient_q2xt3")
 width = 16
 height = 16
 use_hdr = true
