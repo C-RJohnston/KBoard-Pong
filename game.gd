@@ -117,3 +117,6 @@ func _on_ball_plus_pressed() -> void:
 	var ball_position = Vector2(random_x, random_y)
 	new_ball.position = ball_position
 	add_child(new_ball)
+
+func _on_exit_button_pressed() -> void:
+	$PanelContainer.visible = false

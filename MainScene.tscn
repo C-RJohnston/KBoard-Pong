@@ -443,7 +443,7 @@ popup/item_0/text = "Phyrgian"
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Button" type="Button" parent="PanelContainer/ScrollContainer/VBoxContainer/ExitMenu"]
+[node name="ExitButton" type="Button" parent="PanelContainer/ScrollContainer/VBoxContainer/ExitMenu"]
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 1
@@ -452,3 +452,4 @@ text = "Close Menu
 
 [connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/Balls/BallMinus" to="." method="_on_ball_minus_pressed"]
 [connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/Balls/BallPlus" to="." method="_on_ball_plus_pressed"]
+[connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/ExitMenu/ExitButton" to="." method="_on_exit_button_pressed"]
