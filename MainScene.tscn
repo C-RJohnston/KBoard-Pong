@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://ghltptrdlsn1"]
+[gd_scene load_steps=51 format=3 uid="uid://ghltptrdlsn1"]
 
 [ext_resource type="PackedScene" uid="uid://ulhrbx5se0db" path="res://Scenes/Ball/ball.tscn" id="1_4cffp"]
 [ext_resource type="PhysicsMaterial" uid="uid://er7xgtfunvb5" path="res://Materials/physmat.tres" id="1_7f0lv"]
@@ -361,6 +361,7 @@ size_flags_vertical = 3
 [node name="BallMinus" type="Button" parent="PanelContainer/ScrollContainer/VBoxContainer/Balls"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 text = "-"
 
 [node name="Label" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer/Balls"]
@@ -374,6 +375,7 @@ vertical_alignment = 1
 [node name="BallPlus" type="Button" parent="PanelContainer/ScrollContainer/VBoxContainer/Balls"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 text = "+"
 
 [node name="Speed" type="HBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer"]
@@ -382,6 +384,7 @@ layout_mode = 2
 [node name="SpeedMinus" type="Button" parent="PanelContainer/ScrollContainer/VBoxContainer/Speed"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 text = "  -  "
 
 [node name="Label" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer/Speed"]
@@ -391,6 +394,7 @@ text = "      Speed      "
 [node name="SpeedPlus" type="Button" parent="PanelContainer/ScrollContainer/VBoxContainer/Speed"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 text = "  +  "
 
 [node name="Instrument" type="HBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer"]
@@ -439,8 +443,13 @@ popup/item_0/text = "Phyrgian"
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Button" type="Button" parent="PanelContainer/ScrollContainer/VBoxContainer/ExitMenu"]
+[node name="ExitButton" type="Button" parent="PanelContainer/ScrollContainer/VBoxContainer/ExitMenu"]
 layout_mode = 2
 size_flags_horizontal = 0
+mouse_filter = 1
 text = "Close Menu
 (Escape)"
+
+[connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/Balls/BallMinus" to="." method="_on_ball_minus_pressed"]
+[connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/Balls/BallPlus" to="." method="_on_ball_plus_pressed"]
+[connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/ExitMenu/ExitButton" to="." method="_on_exit_button_pressed"]

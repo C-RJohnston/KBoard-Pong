@@ -5,6 +5,8 @@ var wiggle_timer = 0.0
 @export var wiggle_speed = 10.0  # Speed of the wiggle
 @export var wiggle_amount = 0.1  # Amount of the wiggle (rotation in radians)
 
+var ball_scene = load("res://Scenes/Ball/ball.tscn")
+
 # Dictionary mapping input actions to positions
 @onready var action_positions := {
 	"Q": $"Positions/Q",
@@ -95,3 +97,26 @@ func remove_point(action: String):
 			var i = lines.find(line)
 			lines.erase(line)
 			line.queue_free()
+
+
+func _on_ball_minus_pressed() -> void:
+	var nodes_in_group = get_tree().get_nodes_in_group('Ball')
+	# Check if there are nodes in the group
+	if nodes_in_group.size() > 1:
+		# Get the last node in the group
+		var last_node = nodes_in_group[nodes_in_group.size() - 1]
+		if last_node.is_inside_tree():
+			last_node.queue_free()
+
+
+func _on_ball_plus_pressed() -> void:
+	var new_ball = ball_scene.instantiate()
+	var viewport_size = get_viewport_rect().size
+	var random_x = randf_range(0, viewport_size.x)
+	var random_y = randf_range(0, viewport_size.y)
+	var ball_position = Vector2(random_x, random_y)
+	new_ball.position = ball_position
+	add_child(new_ball)
+
+func _on_exit_button_pressed() -> void:
+	$PanelContainer.visible = false
