@@ -2,6 +2,7 @@ extends Node2D
 
 @export var path = preload("res://Assets/A4 Piano.wav")
 @export var chord_path = preload("res://Assets/bass a4.wav")
+var perc_path = preload("res://Assets/39003__nednednerb__doublekick.wav")
 
 #@export var lines_ref: Line
 
@@ -161,3 +162,16 @@ func _on_instrument_option_item_selected(index):
 
 func _on_scale_option_item_selected(index):
 	chosen_scale = index
+
+func play_wall_sound():
+	var player = AudioStreamPlayer.new()
+	add_child(player)
+	player.stream = perc_path
+	player.play()
+	await get_tree().create_timer(4.0).timeout
+	player.queue_free()
+
+
+func _on_ball_body_entered(body):
+	if body.is_in_group("wall"):
+		play_wall_sound()
