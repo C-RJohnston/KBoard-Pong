@@ -66,6 +66,9 @@ func _physics_process(delta: float) -> void:
 		action_positions[action].rotation = sin(wiggle_timer) * wiggle_amount
 
 func _input(event):
+	if event.is_action_pressed("ESC"):
+		$PanelContainer.visible = !$PanelContainer.visible
+		$"Bg Fade".visible = !$"Bg Fade".visible
 	for action in action_positions.keys():
 		if event.is_action_pressed(action) and action not in active_actions:
 			var glow = action_positions[action].get_child(0)
@@ -124,3 +127,4 @@ func _on_ball_plus_pressed() -> void:
 
 func _on_exit_button_pressed() -> void:
 	$PanelContainer.visible = false
+	$"Bg Fade".visible = false

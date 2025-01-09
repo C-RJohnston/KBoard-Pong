@@ -19,17 +19,27 @@ static var frequency := {
 	"A#": 466.16,
 	"B": 493.88
 }
+enum escales {
+	major, minor, dorian, aeorian, phrygian
+}
+
 static var scales:={
-	"Cmaj": ["C", "D", "E", "F", "G", "A", "B"],
-	"Cm": ["C", "D", "D#", "F", "G", "G#", "A#"],
-	"Cdorian": ["C", "D", "D#", "F", "G", "A", "A#",],
-	"Caeorian": ["C", "D", "D#", "F", "G", "G#", "A#"],
-	"Cphrygian": ["C", "C#", "D#", "F", "G", "G#", "A#"]
+	escales.major: ["C", "D", "E", "F", "G", "A", "B"],
+	escales.minor: ["C", "D", "D#", "F", "G", "G#", "A#"],
+	escales.dorian: ["C", "D", "D#", "F", "G", "A", "A#",],
+	escales.aeorian: ["C", "D", "D#", "F", "G", "G#", "A#"],
+	escales.phrygian: ["C", "C#", "D#", "F", "G", "G#", "A#"]
 	}
-@export_enum("Cmaj", "Cm", "Cdorian", "Caeorian", "Cphrygian") var chosen_scale = "Cmaj"
+@export var chosen_scale : escales
 
 static var dyads:= [
-		[[0,0],[2,0]],[[0,0],[4,-1]],[[0,0],[4,0]],[[2,0],[4,0]],[[0,0],[6,-1]],[[0,0],[6,0]],[[3,0],[6,0]]
+		[[0,0],[2,0]],
+		[[0,0],[4,-1]],
+		[[0,0],[4,0]],
+		[[2,0],[5,0]],
+		[[0,0],[6,-1]],
+		[[0,0],[6,0]],
+		[[4,0],[6,0]]
 	]
 
 static var action_pitch:= {
@@ -91,12 +101,13 @@ func _input(event):
 				players.append(player)
 				add_child(player)
 				player.stream = path
-				var named_note = scales[chosen_scale][note[0]+note[1]]
+				var named_note = scales[chosen_scale][note[0]]
+				named_note = frequency.keys()[frequency.keys().find(named_note)+note[1]]
 				player.pitch_scale = frequency[named_note]*pitch/440.0
 				player.play()
 			
 			for player in players:
-				await get_tree().create_timer(8.0).timeout
+				await get_tree().create_timer(4.0).timeout
 				player.queue_free()
 				
 		elif event.is_action_released(action) and action in keys_played:
@@ -116,12 +127,13 @@ func play_chords(keys: Array):
 			players.append(player)
 			add_child(player)
 			player.stream = chord_path
-			var named_note = scales[chosen_scale][note[0]+note[1]]
+			var named_note = scales[chosen_scale][note[0]]
+			named_note = frequency.keys()[frequency.keys().find(named_note)+note[1]]
 			player.pitch_scale = frequency[named_note]*pitch/440.0
 			player.play()
 		
 	for player in players:
-		await get_tree().create_timer(8.0).timeout
+		await get_tree().create_timer(4.0).timeout
 		player.queue_free()
 
 
@@ -131,9 +143,7 @@ func _process(delta):
 	pass
 	
 
-
-
-func _on_instrument_options_item_selected(index):
+func _on_instrument_option_item_selected(index):
 	match index:
 		0:
 			path = preload("res://Assets/cs80 funky.wav")
@@ -147,3 +157,7 @@ func _on_instrument_options_item_selected(index):
 		_:
 			path = preload("res://Assets/cs80 funky.wav")
 			chord_path = preload("res://Assets/bass a4.wav")
+
+
+func _on_scale_option_item_selected(index):
+	chosen_scale = index

@@ -114,13 +114,11 @@ position = Vector2(743, 572)
 
 [node name="Sounds" parent="." instance=ExtResource("3_ggpmk")]
 path = ExtResource("4_6f4bd")
-chosen_scale = "Cm"
 
 [node name="Borders" type="Node2D" parent="."]
 
 [node name="Top" type="StaticBody2D" parent="Borders"]
 position = Vector2(750, 13)
-physics_material_override = ExtResource("1_7f0lv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Top"]
 shape = SubResource("RectangleShape2D_trjgi")
@@ -159,6 +157,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_635gc")
 
 [node name="Glow" type="Sprite2D" parent="Positions/1"]
+visible = false
 z_index = -2
 material = SubResource("ShaderMaterial_xg7hi")
 position = Vector2(-0.5, 0)
@@ -590,6 +589,17 @@ material = SubResource("ShaderMaterial_81e0q")
 offset_right = 1500.0
 offset_bottom = 1200.0
 
+[node name="Bg Fade" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1500.0
+offset_bottom = 1200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.2, 0.2, 0.4)
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 visible = false
 offset_left = 355.0
@@ -662,7 +672,7 @@ text = "Instrument"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="PanelContainer/ScrollContainer/VBoxContainer/Instrument"]
+[node name="InstrumentOption" type="OptionButton" parent="PanelContainer/ScrollContainer/VBoxContainer/Instrument"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
@@ -685,13 +695,21 @@ text = "Scale"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="PanelContainer/ScrollContainer/VBoxContainer/Scale"]
+[node name="ScaleOption" type="OptionButton" parent="PanelContainer/ScrollContainer/VBoxContainer/Scale"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 selected = 0
-item_count = 1
-popup/item_0/text = "Phyrgian"
+item_count = 5
+popup/item_0/text = "Major"
+popup/item_1/text = "Minor"
+popup/item_1/id = 1
+popup/item_2/text = "Dorian"
+popup/item_2/id = 2
+popup/item_3/text = "Aeorian"
+popup/item_3/id = 4
+popup/item_4/text = "Phrygian"
+popup/item_4/id = 5
 
 [node name="ExitMenu" type="HBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -813,4 +831,6 @@ autoplay = true
 
 [connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/Balls/BallMinus" to="." method="_on_ball_minus_pressed"]
 [connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/Balls/BallPlus" to="." method="_on_ball_plus_pressed"]
+[connection signal="item_selected" from="PanelContainer/ScrollContainer/VBoxContainer/Instrument/InstrumentOption" to="Sounds" method="_on_instrument_option_item_selected"]
+[connection signal="item_selected" from="PanelContainer/ScrollContainer/VBoxContainer/Scale/ScaleOption" to="Sounds" method="_on_scale_option_item_selected"]
 [connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/ExitMenu/ExitButton" to="." method="_on_exit_button_pressed"]
