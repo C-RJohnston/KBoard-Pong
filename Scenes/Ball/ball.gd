@@ -38,7 +38,3 @@ func _process(delta):
 	line.clear_points()
 	for point in queue:
 		line.add_point(point)
-
-
-func _on_body_entered(body):
-	pass # Replace with function body.
