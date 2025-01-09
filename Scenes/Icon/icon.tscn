@@ -17,7 +17,6 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.829897, 0.175258)
 
 [node name="Icon" type="Node2D"]
-position = Vector2(100, 100)
 script = ExtResource("1_x5kcn")
 wiggle_speed = 50
 
