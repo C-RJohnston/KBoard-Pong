@@ -6,6 +6,7 @@ var wiggle_timer = 0.0
 @export var wiggle_amount = 0.1  # Amount of the wiggle (rotation in radians)
 
 var ball_scene = load("res://Scenes/Ball/ball.tscn")
+var glowing = false
 
 # Dictionary mapping input actions to positions
 @onready var action_positions := {
@@ -63,20 +64,18 @@ func _physics_process(delta: float) -> void:
 	for action in active_actions:
 		wiggle_timer += _delta * wiggle_speed
 		action_positions[action].rotation = sin(wiggle_timer) * wiggle_amount
-		
-		
 
 func _input(event):
 	for action in action_positions.keys():
 		if event.is_action_pressed(action) and action not in active_actions:
+			var glow = action_positions[action].get_child(0)
+			glow.visible = true
 			add_point(action)
-			var particles = action_positions[action].get_child(0)
-			particles.emitting = true
 			
 		elif event.is_action_released(action) and action in active_actions:
+			var glow = action_positions[action].get_child(0)
+			glow.visible = false
 			remove_point(action)
-			var particles = action_positions[action].get_child(0)
-			particles.emitting = false
 			
 
 func add_point(action: String):

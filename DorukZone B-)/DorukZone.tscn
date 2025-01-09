@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr3itgpo40k5j"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://er7xgtfunvb5" path="res://Materials/physmat.tres" id="1_l70ke"]
+[ext_resource type="Script" path="res://DorukZone B-)/doruk_zone.gd" id="1_mxg5w"]
+[ext_resource type="PackedScene" uid="uid://ulhrbx5se0db" path="res://Scenes/Ball/ball.tscn" id="2_yf6aq"]
+[ext_resource type="AudioStream" uid="uid://c2gqukle0rjn8" path="res://Assets/bongo.wav" id="3_dsg0h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccmt1"]
+size = Vector2(1500, 36.0198)
+
+[node name="DorukZone" type="Node2D"]
+script = ExtResource("1_mxg5w")
+
+[node name="Top" type="StaticBody2D" parent="."]
+position = Vector2(1230, 573)
+rotation = 1.5728
+physics_material_override = ExtResource("1_l70ke")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+shape = SubResource("RectangleShape2D_ccmt1")
+
+[node name="Area2D" type="Area2D" parent="Top"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top/Area2D"]
+position = Vector2(0, -8.00989)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ccmt1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dsg0h")
+
+[node name="Ball" parent="." instance=ExtResource("2_yf6aq")]
+position = Vector2(396, 350)
+
+[connection signal="body_entered" from="Top/Area2D" to="." method="_on_area_2d_body_entered"]
