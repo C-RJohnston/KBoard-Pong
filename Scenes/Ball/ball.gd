@@ -39,12 +39,6 @@ func _process(delta):
 	for point in queue:
 		line.add_point(point)
 
-func _input(event):
-	if(event.is_action_pressed("ui_up")):
-		increase_speed(50)
-	if(event.is_action_pressed("ui_down")):
-		decrease_speed(50)
-
 
 func _on_body_entered(body):
 	pass # Replace with function body.

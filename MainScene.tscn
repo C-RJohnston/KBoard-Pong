@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://ghltptrdlsn1"]
+[gd_scene load_steps=54 format=3 uid="uid://ghltptrdlsn1"]
 
 [ext_resource type="PackedScene" uid="uid://ulhrbx5se0db" path="res://Scenes/Ball/ball.tscn" id="1_4cffp"]
 [ext_resource type="PhysicsMaterial" uid="uid://er7xgtfunvb5" path="res://Materials/physmat.tres" id="1_7f0lv"]
@@ -44,7 +44,8 @@
 [ext_resource type="Texture2D" uid="uid://dtwdpdkpnisfr" path="res://Sprites/Tiles/Part2/tile012.png" id="40_en5tx"]
 [ext_resource type="Texture2D" uid="uid://co7ggkfupxeae" path="res://Sprites/Tiles/Part2/tile013.png" id="41_i66nc"]
 [ext_resource type="Texture2D" uid="uid://ccm56e4ftxqiu" path="res://Sprites/PrototypeAssets/bordrr.png" id="42_48cxy"]
-[ext_resource type="Theme" uid="uid://cb4ofx1tjqlvo" path="res://GameTheme.tres" id="45_m8127"]
+[ext_resource type="Theme" uid="uid://bhlt6elvpnb2p" path="res://GameTheme.tres" id="45_m8127"]
+[ext_resource type="AudioStream" uid="uid://blela3gy51lh3" path="res://Assets/tone.wav" id="46_nhb4b"]
 [ext_resource type="Texture2D" uid="uid://bvk50k8neq64d" path="res://Sprites/bgtile2.png" id="46_novl4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_681tj"]
@@ -805,6 +806,10 @@ texture = ExtResource("46_novl4")
 modulate = Color(0, 0, 0, 0.305882)
 position = Vector2(1350, 1050)
 texture = ExtResource("46_novl4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("46_nhb4b")
+autoplay = true
 
 [connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/Balls/BallMinus" to="." method="_on_ball_minus_pressed"]
 [connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/Balls/BallPlus" to="." method="_on_ball_plus_pressed"]

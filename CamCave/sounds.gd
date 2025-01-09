@@ -130,3 +130,20 @@ func play_chords(keys: Array):
 func _process(delta):
 	pass
 	
+
+
+
+func _on_instrument_options_item_selected(index):
+	match index:
+		0:
+			path = preload("res://Assets/cs80 funky.wav")
+			chord_path = preload("res://Assets/bass a4.wav")
+		1:
+			path = preload("res://Assets/A4 Piano.wav")
+			chord_path = preload("res://Assets/A4 Piano.wav")
+		2:
+			path = preload("res://Assets/guitar a4.wav")
+			chord_path = preload("res://Assets/guitar a4.wav")
+		_:
+			path = preload("res://Assets/cs80 funky.wav")
+			chord_path = preload("res://Assets/bass a4.wav")
