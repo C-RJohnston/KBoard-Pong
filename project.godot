@@ -13,6 +13,9 @@ config_version=5
 config/name="KBoard Pong"
 run/main_scene="res://MainScene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/bg_color=Color(0.0901961, 0.172549, 0.470588, 1)
+boot_splash/image="res://Assets/0A2BBC02-5BFB-4D80-A40E-0ECEA07350F6.png"
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [display]
@@ -29,6 +32,7 @@ enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg")
 [global_group]
 
 Ball=""
+wall=""
 
 [input]
 
