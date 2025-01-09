@@ -53,6 +53,9 @@ var lines: Array
 
 var _delta : float
 
+func _ready():
+	pass
+
 func _physics_process(delta: float) -> void:
 	_delta = delta
 	for action in active_actions:

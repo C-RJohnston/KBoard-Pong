@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://ghltptrdlsn1"]
+[gd_scene load_steps=50 format=3 uid="uid://ghltptrdlsn1"]
 
 [ext_resource type="PackedScene" uid="uid://ulhrbx5se0db" path="res://Scenes/Ball/ball.tscn" id="1_4cffp"]
 [ext_resource type="PhysicsMaterial" uid="uid://er7xgtfunvb5" path="res://Materials/physmat.tres" id="1_7f0lv"]
@@ -62,6 +62,12 @@ shader_parameter/roll_speed = 1.0
 shader_parameter/scan_line_strength = -8.0
 shader_parameter/pixel_strength = -2.0
 
+[sub_resource type="Environment" id="Environment_sd2a5"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 0.09
+glow_hdr_scale = 0.65
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trjgi"]
 size = Vector2(1500, 20)
 
@@ -90,9 +96,12 @@ material = SubResource("ShaderMaterial_681tj")
 script = ExtResource("1_ij5ce")
 wiggle_amount = 0.5
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sd2a5")
+
 [node name="Ball" parent="." instance=ExtResource("1_4cffp")]
 z_index = 5
-position = Vector2(837, 520)
+position = Vector2(743, 572)
 
 [node name="Sounds" parent="." instance=ExtResource("3_ggpmk")]
 path = ExtResource("4_6f4bd")
