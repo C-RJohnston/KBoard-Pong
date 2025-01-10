@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var path = preload("res://Assets/A4 Piano.wav")
+@export var path = preload("res://Assets/synth2.wav")
 @export var chord_path = preload("res://Assets/bass a4.wav")
 
 #@export var lines_ref: Line
@@ -85,7 +85,8 @@ var keys_played: Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	path = preload("res://Assets/synth2.wav")
+	chord_path = preload("res://Assets/synth2.wav")
 	#lines_ref.collided.connect(play_chords)
 
 func _input(event):
@@ -146,23 +147,26 @@ func _process(delta):
 func _on_instrument_option_item_selected(index):
 	match index:
 		0:
+			path = preload("res://Assets/synth2.wav")
+			chord_path = preload("res://Assets/synth2.wav")
+		1:
 			path = preload("res://Assets/cs80 funky.wav")
 			chord_path = preload("res://Assets/bass a4.wav")
-		1:
+		2:
 			path = preload("res://Assets/A4 Piano.wav")
 			chord_path = preload("res://Assets/A4 Piano.wav")
-		2:
+		3:
 			path = preload("res://Assets/guitar a4.wav")
 			chord_path = preload("res://Assets/guitar a4.wav")
-		3:
+		4:
 			path = preload("res://Assets/newmarimba.wav")
 			chord_path = preload("res://Assets/newmarimba.wav")
-		4:
+		5:
 			path = preload("res://Assets/fluteA4.wav")
 			chord_path = preload("res://Assets/fluteA4.wav")
 		_:
-			path = preload("res://Assets/cs80 funky.wav")
-			chord_path = preload("res://Assets/bass a4.wav")
+			path = preload("res://Assets/synth2.wav")
+			chord_path = preload("res://Assets/synth2.wav")
 
 
 func _on_scale_option_item_selected(index):

@@ -618,7 +618,7 @@ z_index = 6
 offset_left = 271.0
 offset_top = 248.0
 offset_right = 1248.0
-offset_bottom = 536.0
+offset_bottom = 631.0
 theme = ExtResource("45_m8127")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer"]
@@ -694,16 +694,18 @@ size_flags_horizontal = 3
 alignment = 1
 selected = 0
 allow_reselect = true
-item_count = 5
-popup/item_0/text = "Synthesizer"
-popup/item_1/text = "Piano"
+item_count = 6
+popup/item_0/text = "Synth 1"
+popup/item_1/text = "Synth 2"
 popup/item_1/id = 1
-popup/item_2/text = "Guitar"
+popup/item_2/text = "Piano"
 popup/item_2/id = 2
-popup/item_3/text = "Marimba"
+popup/item_3/text = "Guitar"
 popup/item_3/id = 3
-popup/item_4/text = "Flute"
+popup/item_4/text = "Marimba"
 popup/item_4/id = 4
+popup/item_5/text = "Flute"
+popup/item_5/id = 5
 
 [node name="Scale" type="HBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -740,7 +742,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 1
 text = "Close Menu
-"
+(Escape to Toggle)"
 
 [node name="BG" type="Node2D" parent="."]
 z_index = -9
